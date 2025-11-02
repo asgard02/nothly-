@@ -79,7 +79,7 @@ export async function isPro(): Promise<boolean> {
 
 // Fonction de connexion mock pour l'environnement de développement
 // Crée ou récupère un utilisateur dans la table users
-async function _mockLogin(email: string): Promise<User> {
+export async function mockLogin(email: string): Promise<User> {
   if (process.env.NODE_ENV === 'production') {
     throw new Error('mockLogin ne peut être utilisé qu\'en développement')
   }
@@ -121,6 +121,3 @@ async function _mockLogin(email: string): Promise<User> {
   console.log('[mockLogin] Nouvel utilisateur créé:', normalizedEmail)
   return newUser as User
 }
-
-// Export explicite pour garantir la compatibilité avec tous les bundlers
-export const mockLogin = _mockLogin
