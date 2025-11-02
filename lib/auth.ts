@@ -122,4 +122,3 @@ export async function mockLogin(email: string): Promise<User> {
   return newUser as User
 }
 
-
